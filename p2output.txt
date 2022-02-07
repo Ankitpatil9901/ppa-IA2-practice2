@@ -1,4 +1,5 @@
- 
+GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
+
  gcc -g p2original.c
  gdb ./a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
@@ -17,13 +18,13 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from ./a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x839: file p2original.c, line 26.
+Breakpoint 1 at 0x7df: file p2original.c, line 35.
 (gdb) r
 Starting program: /home/runner/ppa-IA2-practice2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:26
-26  a=input_side();
+Breakpoint 1, main () at p2original.c:35
+35  a=input_side();
 (gdb) s
 input_side () at p2original.c:3
 3   {
@@ -34,12 +35,12 @@ Enter the Value
 6     scanf("%d",&a);
 (gdb) n
 :5
-7     return 0;
+7     return a;
 (gdb) n
 8   }
 (gdb) n
-main () at p2original.c:27
-27  b=input_side();
+main () at p2original.c:36
+36  b=input_side();
 (gdb) s
 input_side () at p2original.c:3
 3   {
@@ -49,13 +50,13 @@ input_side () at p2original.c:3
 Enter the Value 
 6     scanf("%d",&a);
 (gdb) n
-:n
-7     return 0;
+:2
+7     return a;
 (gdb) n
 8   }
 (gdb) n
-main () at p2original.c:28
-28  c=input_side();
+main () at p2original.c:37
+37  c=input_side();
 (gdb) s
 input_side () at p2original.c:3
 3   {
@@ -65,18 +66,38 @@ input_side () at p2original.c:3
 Enter the Value 
 6     scanf("%d",&a);
 (gdb) n
-7     return 0;
+:8
+7     return a;
 (gdb) n
 8   }
 (gdb) n
-main () at p2original.c:31
-31  return 0;
+main () at p2original.c:38
+38  check_scalene( a,b,c);
+(gdb) s
+check_scalene (a=5, b=2, c=8) at p2original.c:13
+13    if (a!=b&&b!=c&&c!=a)
 (gdb) n
-32  }(gdb) q
+15      r=1;
+(gdb) n
+21  }
+(gdb) n
+main () at p2original.c:39
+39  output(a,b,c);
+(gdb) s
+output (a=5, b=2, c=8) at p2original.c:26
+26    if (r=1)
+(gdb) n
+27    printf("The Triangle is Scalene");
+(gdb) n
+30  }
+(gdb) n
+main () at p2original.c:40
+40  return 0;
+(gdb) n
+41  }(gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 121] will be killed.
+    Inferior 1 [process 405] will be killed.
 
 Quit anyway? (y or n) y
- ^C
  
