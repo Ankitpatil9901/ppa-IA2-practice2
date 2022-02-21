@@ -1,5 +1,4 @@
- 
- gcc -g p3original.c
+ gcc -g p2original.c
  gdb ./a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -17,57 +16,87 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from ./a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x849: file p3original.c, line 32.
+Breakpoint 1 at 0x850: file p2original.c, line 34.
 (gdb) r
 Starting program: /home/runner/ppa-IA2-practice2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p3original.c:32
-32    n=input();
+Breakpoint 1, main () at p2original.c:34
+34    int AB = input_side();
 (gdb) s
-input () at p3original.c:3
-3   {
+input_side () at p2original.c:4
+4   {
 (gdb) n
-5     printf("Enter the number\n");
+6     printf("Enter a side of the triangle:\n");
 (gdb) n
-Enter the number
-6     scanf("%d",&n);
+Enter a side of the triangle:
+7     scanf("%d", &side);
 (gdb) n
-7
-7     return n;
+5
+8     return side;
 (gdb) n
-8   }
+9   }
 (gdb) n
-main () at p3original.c:33
-33    c=composite(n);
+main () at p2original.c:35
+35    int BC = input_side();
 (gdb) s
-composite (n=7) at p3original.c:12
-12    for(int i=1;i<=n%2;i++)
+input_side () at p2original.c:4
+4   {
 (gdb) n
-14      if (n/i!=1)
+6     printf("Enter a side of the triangle:\n");
 (gdb) n
-16        return 1;
+Enter a side of the triangle:
+7     scanf("%d", &side);
 (gdb) n
-20  }
+6
+8     return side;
 (gdb) n
-main () at p3original.c:34
-34    output(n,c);
+9   }
+(gdb) n
+main () at p2original.c:36
+36    int CA = input_side();
 (gdb) s
-output (n=7, c=1) at p3original.c:24
-24    if (c>0)
+input_side () at p2original.c:4
+4   {
 (gdb) n
-25    printf("%d is composite",n);
+6     printf("Enter a side of the triangle:\n");
 (gdb) n
-28  }
+Enter a side of the triangle:
+7     scanf("%d", &side);
 (gdb) n
-main () at p3original.c:35
-35    return 0;
+6
+8     return side;
 (gdb) n
-36  }
+9   }
+(gdb) n
+main () at p2original.c:38
+38    int res = check_scalene(AB, BC, CA);
+(gdb) s
+check_scalene (a=5, b=6, c=6) at p2original.c:13
+13    if (a != b && a != c && b != c)
+(gdb) n
+17    return 0;
+(gdb) n
+18  }
+(gdb) n
+main () at p2original.c:39
+39    output(AB, BC, CA, res);
+(gdb) s
+output (a=5, b=6, c=6, isScalene=0) at p2original.c:22
+22    if(isScalene)
+(gdb) n
+28      printf("The triangle with sides %d, %d and %d is not scalene\n", a, b, c);  
+(gdb) n
+The triangle with sides 5, 6 and 6 is not scalene
+30  }
+(gdb) n
+main () at p2original.c:41
+41    return 0;
+(gdb) n
+42  }
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 66] will be killed.
+    Inferior 1 [process 1726] will be killed.
 
 Quit anyway? (y or n) y
- 
