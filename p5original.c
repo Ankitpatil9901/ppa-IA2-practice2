@@ -27,10 +27,8 @@ int gcd(int a, int b)
       gcd = i;
   }
   return gcd;
-    
 }
-// Do using euclids algorithm 
-// https://en.wikipedia.org/wiki/Euclidean_algorithm
+
 void output(int a, int b, int gcd)
 {
   printf("The gcd of %d and %d is %d\n", a, b, gcd);
