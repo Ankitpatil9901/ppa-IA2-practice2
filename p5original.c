@@ -8,7 +8,6 @@ int input()
   return num;
 }
 
-// Using Students algorithm
 int gcd(int a, int b)
 {
   int i,small,gcd;
