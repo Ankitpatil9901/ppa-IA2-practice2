@@ -11,7 +11,7 @@ int composite(int n)
 { 
   for (int i=2;i<n/2;i++)
   {
-    if (n/i != 1)
+    if (n%i != 1)
     {
       return 1; 
     }
@@ -24,10 +24,10 @@ void output(int n,int c)
 {
   if(c>0)
   {
-    printf("%d is a composite",n);
+    printf("%d is a composite number",n);
   }
   else 
-  printf("%d is not composite",n);
+  printf("%d is not composite number",n);
 }
 
 int main()
