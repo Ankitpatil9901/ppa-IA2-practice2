@@ -21,7 +21,7 @@ void output(int a, int b, int c, int isScalene)
 {
   if(isScalene)
   {
-    printf("The triangle with sides %d, %d and %d is scalene\n", a, b, c);
+    printf("The triangle with sides %d, %d and %d is scalene\n", a,b,c);
   }
   else
   {
